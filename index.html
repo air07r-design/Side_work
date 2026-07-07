@@ -605,6 +605,14 @@
     </style>
 </head>
 <body>
+    <!--
+        Reservation Link Setting
+        RESERVAの公開予約URLが決まったら、下のdata-reserve-urlだけを差し替えてください。
+        LP内の予約ボタンはJavaScriptでこのURLに統一されます。
+        将来、RESERVA以外の予約システムへ移行する場合も、この1箇所を変更します。
+    -->
+    <div id="reservation-config" data-reserve-url="https://example.com/reserve" hidden></div>
+
     <!-- Header -->
     <header class="site-header">
         <nav class="nav" aria-label="メインナビゲーション">
@@ -615,7 +623,7 @@
                 <a href="#story">Story</a>
                 <a href="#instagram">Instagram</a>
                 <a href="#access">Access</a>
-                <a class="nav-reserve" href="https://example.com/reserve" target="_blank" rel="noopener">WEB予約</a>
+                <a class="nav-reserve js-reserve-link" href="#reserve" target="_blank" rel="noopener">WEB予約</a>
             </div>
         </nav>
     </header>
@@ -628,7 +636,7 @@
                 <h1>素朴で、やさしい。<br>日々に寄り添う焼き菓子。</h1>
                 <p>山梨県甲府市上石田の小さな焼き菓子店。カヌレやフィナンシェ、バスクチーズケーキ、記念日ケーキをひとつずつ手作りしています。</p>
                 <div class="hero-actions">
-                    <a class="button" href="https://example.com/reserve" target="_blank" rel="noopener">WEB予約へ進む</a>
+                    <a class="button js-reserve-link" href="#reserve" target="_blank" rel="noopener">WEB予約へ進む</a>
                     <a class="button button-secondary" href="#menu">メニューを見る</a>
                 </div>
             </div>
@@ -700,9 +708,8 @@
                 </div>
                 <aside class="reservation-box" aria-label="WEB予約案内">
                     <strong>WEB予約受付</strong>
-                    <p>InstagramのDMではなく、予約ページから必要事項を入力できます。</p>
-                    <!-- 予約URL差し替え箇所：Square予約 / RESERVA / STORES予約などの公開URLに変更してください。 -->
-                    <a class="button" href="https://example.com/reserve" target="_blank" rel="noopener">WEB予約へ進む</a>
+                    <p>InstagramのDMではなく、RESERVAの予約ページから必要事項を入力できます。</p>
+                    <a class="button js-reserve-link" href="#reserve" target="_blank" rel="noopener">WEB予約へ進む</a>
                 </aside>
             </div>
         </section>
@@ -774,11 +781,25 @@
     </main>
 
     <!-- Mobile Fixed Reservation Button -->
-    <a class="button mobile-reserve" href="https://example.com/reserve" target="_blank" rel="noopener">WEB予約へ進む</a>
+    <a class="button mobile-reserve js-reserve-link" href="#reserve" target="_blank" rel="noopener">WEB予約へ進む</a>
 
     <!-- Footer -->
     <footer>
         <small>© 2026 焼き菓子 suu. All Rights Reserved.</small>
     </footer>
+
+    <!-- Minimal JavaScript: reservation URL is managed in one place above. -->
+    <script>
+        (() => {
+            const config = document.getElementById("reservation-config");
+            const reserveUrl = config?.dataset.reserveUrl;
+
+            if (!reserveUrl) return;
+
+            document.querySelectorAll(".js-reserve-link").forEach((link) => {
+                link.href = reserveUrl;
+            });
+        })();
+    </script>
 </body>
 </html>
