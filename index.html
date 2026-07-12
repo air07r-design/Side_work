@@ -12,11 +12,13 @@
         :root {
             --color-ink: #302c28;
             --color-muted: #70695f;
-            --color-cream: #fbf7ef;
+            --color-cream: #fffaf1;
             --color-paper: #fffdf8;
             --color-sage: #637866;
             --color-sage-dark: #415444;
             --color-clay: #b78764;
+            --color-cocoa: #5a4030;
+            --color-milk: #f7efe3;
             --color-line: #e8dfd2;
             --shadow-soft: 0 18px 45px rgba(65, 50, 35, 0.10);
         }
@@ -122,8 +124,9 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(251, 247, 239, 0.88);
-            border-bottom: 1px solid rgba(232, 223, 210, 0.7);
+            background: rgba(40, 35, 30, 0.58);
+            border-bottom: 1px solid rgba(255, 250, 241, 0.34);
+            color: #fffaf1;
             backdrop-filter: blur(14px);
         }
 
@@ -138,17 +141,22 @@
         }
 
         .brand {
-            color: var(--color-sage-dark);
             font-size: 1rem;
-            font-weight: 500;
+            font-weight: 600;
             text-decoration: none;
+        }
+
+        .brand span {
+            color: rgba(255, 250, 241, 0.7);
+            font-size: 0.78rem;
+            font-weight: 400;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
             gap: 22px;
-            color: var(--color-muted);
+            color: rgba(255, 250, 241, 0.84);
             font-size: 0.78rem;
         }
 
@@ -158,48 +166,108 @@
 
         .nav-reserve {
             padding: 9px 16px;
+            border: 1px solid rgba(255, 250, 241, 0.5);
             border-radius: 999px;
-            background: var(--color-sage-dark);
-            color: #fff;
+            background: rgba(255, 250, 241, 0.12);
+            color: #fffaf1;
             font-weight: 600;
         }
 
         .hero {
+            position: relative;
             display: grid;
-            place-items: end start;
-            min-height: 92svh;
+            align-items: end;
+            min-height: 88svh;
             padding: 116px 20px 56px;
-            background:
-                linear-gradient(180deg, rgba(30, 28, 24, 0.10), rgba(30, 28, 24, 0.54)),
-                url("hero-baked-sweets.jpg") center/cover no-repeat;
+            overflow: hidden;
             color: #fff;
         }
 
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, rgba(26, 22, 18, 0.78) 0%, rgba(26, 22, 18, 0.54) 38%, rgba(26, 22, 18, 0.18) 72%),
+                linear-gradient(180deg, rgba(26, 22, 18, 0.12), rgba(26, 22, 18, 0.54)),
+                url("suu-hero.png") center/cover no-repeat;
+            transform: scale(1.01);
+        }
+
         .hero-inner {
-            width: min(1040px, 100%);
+            position: relative;
+            width: min(1120px, 100%);
             margin: 0 auto;
         }
 
-        .hero-logo {
-            width: min(210px, 58vw);
-            margin-bottom: 28px;
-            filter: drop-shadow(0 8px 22px rgba(0, 0, 0, 0.20));
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+            color: rgba(255, 250, 241, 0.82);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 34px;
+            height: 1px;
+            background: currentColor;
         }
 
         .hero h1 {
-            max-width: 680px;
+            max-width: 720px;
             margin-bottom: 18px;
-            font-size: clamp(2rem, 10vw, 4.4rem);
+            font-size: clamp(2.45rem, 9vw, 5.8rem);
             font-weight: 400;
-            line-height: 1.18;
+            line-height: 1.08;
             text-shadow: 0 4px 24px rgba(0, 0, 0, 0.22);
         }
 
-        .hero p {
-            max-width: 560px;
+        .hero-lead {
+            max-width: 570px;
             margin-bottom: 28px;
             font-size: clamp(0.98rem, 3.2vw, 1.14rem);
             text-shadow: 0 3px 18px rgba(0, 0, 0, 0.28);
+        }
+
+        /* ========================================
+           Intro
+        ======================================== */
+        .intro {
+            padding-top: 32px;
+            padding-bottom: 32px;
+            background: var(--color-milk);
+        }
+
+        .intro-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1px;
+            overflow: hidden;
+            border: 1px solid rgba(90, 64, 48, 0.18);
+            border-radius: 8px;
+            background: rgba(90, 64, 48, 0.18);
+        }
+
+        .intro-item {
+            min-height: 132px;
+            padding: 26px;
+            background: var(--color-paper);
+        }
+
+        .intro-item b {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--color-cocoa);
+            font-size: 1.02rem;
+        }
+
+        .intro-item span {
+            color: var(--color-muted);
+            font-size: 0.9rem;
         }
 
         .hero-actions {
@@ -213,7 +281,7 @@
         ======================================== */
         .concept-layout {
             display: grid;
-            grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+            grid-template-columns: minmax(0, 1fr) minmax(300px, 0.72fr);
             gap: 54px;
             align-items: center;
         }
@@ -234,17 +302,17 @@
             margin-top: 18px;
         }
 
-        .concept-photo {
-            overflow: hidden;
-            border-radius: 8px;
-            background: linear-gradient(135deg, #eadcc9, #f8f0e4);
-            box-shadow: var(--shadow-soft);
+        .note-panel {
+            padding: 34px;
+            border-left: 4px solid var(--color-clay);
+            background: #f4eadc;
         }
 
-        .concept-photo img {
-            width: 100%;
-            aspect-ratio: 4 / 5;
-            object-fit: cover;
+        .note-panel b {
+            display: block;
+            margin-bottom: 12px;
+            color: var(--color-cocoa);
+            font-size: 1.1rem;
         }
 
         /* ========================================
@@ -272,11 +340,28 @@
             background: #fff;
         }
 
-        .menu-card img {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            background: linear-gradient(135deg, #f0e2d0, #faf4ea);
-            object-fit: cover;
+        .menu-visual {
+            display: grid;
+            place-items: center;
+            min-height: 190px;
+            background:
+                radial-gradient(circle at 52% 40%, rgba(255, 250, 241, 0.88) 0 18%, transparent 19%),
+                radial-gradient(circle at 50% 48%, #b86f42 0 34%, #8d4d32 35% 47%, transparent 48%),
+                linear-gradient(135deg, #e2d1bb, #f7efe3);
+        }
+
+        .menu-visual.financier {
+            background:
+                linear-gradient(135deg, transparent 41%, rgba(255, 250, 241, 0.4) 42% 45%, transparent 46%),
+                radial-gradient(ellipse at 50% 54%, #cf9862 0 34%, #b87545 35% 52%, transparent 53%),
+                linear-gradient(135deg, #ead7bf, #fff5e7);
+        }
+
+        .menu-visual.cheese {
+            background:
+                radial-gradient(circle at 50% 50%, #ecd1a0 0 36%, #654233 37% 47%, transparent 48%),
+                radial-gradient(circle at 48% 44%, rgba(255, 255, 255, 0.45) 0 8%, transparent 9%),
+                linear-gradient(135deg, #e0d4c4, #f7efe3);
         }
 
         .menu-card-body {
@@ -392,6 +477,7 @@
             width: 100%;
             aspect-ratio: 4 / 5;
             object-fit: cover;
+            object-position: 68% center;
         }
 
         .profile-block + .profile-block {
@@ -435,12 +521,25 @@
             margin: 28px 0 30px;
         }
 
-        .instagram-grid img {
-            width: 100%;
-            aspect-ratio: 1 / 1;
+        .post-tile {
+            min-height: 176px;
             border-radius: 6px;
-            background: linear-gradient(135deg, #eadfce, #fbf6ee);
-            object-fit: cover;
+            border: 1px solid rgba(90, 64, 48, 0.16);
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.38), transparent),
+                var(--tile-color, #ead8c1);
+        }
+
+        .post-tile:nth-child(2) {
+            --tile-color: #d8e0d4;
+        }
+
+        .post-tile:nth-child(3) {
+            --tile-color: #d4c2ad;
+        }
+
+        .post-tile:nth-child(4) {
+            --tile-color: #c2d0d1;
         }
 
         .instagram-copy {
@@ -546,6 +645,7 @@
                 max-width: 360px;
             }
 
+            .intro-list,
             .concept-layout,
             .reservation-panel,
             .story-layout,
@@ -594,8 +694,13 @@
                 width: 100%;
             }
 
-            .hero-logo {
-                width: 164px;
+            .intro-item,
+            .note-panel {
+                padding: 24px 20px;
+            }
+
+            .post-tile {
+                min-height: 126px;
             }
 
             .menu-card-body {
@@ -616,7 +721,7 @@
     <!-- Header -->
     <header class="site-header">
         <nav class="nav" aria-label="メインナビゲーション">
-            <a class="brand" href="#top">焼き菓子 suu</a>
+            <a class="brand" href="#top">焼き菓子 suu <span>甲府市上石田</span></a>
             <div class="nav-links">
                 <a href="#concept">Concept</a>
                 <a href="#menu">Menu</a>
@@ -628,16 +733,36 @@
         </nav>
     </header>
 
-    <!-- First View -->
-    <main id="top">
+        <!-- First View -->
+        <main id="top">
         <section class="hero" aria-label="焼き菓子suuのファーストビュー">
             <div class="hero-inner">
-                <img class="hero-logo" src="logo-white.png" alt="焼き菓子 suu ロゴ">
-                <h1>素朴で、やさしい。<br>日々に寄り添う焼き菓子。</h1>
-                <p>山梨県甲府市上石田の小さな焼き菓子店。カヌレやフィナンシェ、バスクチーズケーキ、記念日ケーキをひとつずつ手作りしています。</p>
+                <span class="eyebrow">Kofu, Kamiishida</span>
+                <h1>日々に、そっと残る焼き菓子。</h1>
+                <p class="hero-lead">甲府市上石田の小さな焼き菓子店。カヌレ、フィナンシェ、バスクチーズケーキ、記念日ケーキを、手仕事の温度が伝わるように焼き上げています。</p>
                 <div class="hero-actions">
-                    <a class="button js-reserve-link" href="#reserve" target="_blank" rel="noopener">WEB予約へ進む</a>
+                    <a class="button js-reserve-link" href="#reserve" target="_blank" rel="noopener">WEB予約する</a>
                     <a class="button button-secondary" href="#menu">メニューを見る</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intro -->
+        <section class="intro" aria-label="お店と予約の概要">
+            <div class="section-inner">
+                <div class="intro-list">
+                    <div class="intro-item">
+                        <b>店頭受け取り予約</b>
+                        <span>ホールケーキや限定ギフトは、RESERVAから事前予約できます。</span>
+                    </div>
+                    <div class="intro-item">
+                        <b>オンライン決済なし</b>
+                        <span>現在のお支払いは店頭で。まずは予約管理をわかりやすく整えます。</span>
+                    </div>
+                    <div class="intro-item">
+                        <b>最新情報はInstagram</b>
+                        <span>営業日、焼き上がり、季節の商品はInstagramでお知らせします。</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -651,9 +776,10 @@
                     <p class="lead">山梨県甲府市上石田の、かつて地域に愛された老舗パティスリーの跡地で、私たちは新しい物語を紡いでいます。</p>
                     <p class="lead">製菓学校を出ていない独学の私たちだからこそ、既成概念にとらわれず、ただひたむきにお客様の「美味しい」と「心地いい」に向き合える。日常の隙間にそっと寄り添う、そんな温かい焼き菓子と空間をお届けします。</p>
                 </div>
-                <figure class="concept-photo">
-                    <img src="concept-shop-counter.jpg" alt="焼き菓子suuの店内と焼き菓子">
-                </figure>
+                <aside class="note-panel">
+                    <b>焼き菓子 suu らしさ</b>
+                    <p class="lead">淡い自然光、焼きたての香ばしさ、紙包みの手触り。Instagramから訪れた方にも、Googleマップで探す方にも、落ち着いて予約・来店できる導線を大切にしています。</p>
+                </aside>
             </div>
         </section>
 
@@ -668,21 +794,21 @@
 
                 <div class="menu-grid">
                     <article class="menu-card">
-                        <img src="menu-canele.jpg" alt="カヌレ">
+                        <div class="menu-visual" aria-hidden="true"></div>
                         <div class="menu-card-body">
                             <h3>カヌレ</h3>
                             <p>外は香ばしく、中はしっとり。suuを知っていただくきっかけにもなっている人気の焼き菓子です。</p>
                         </div>
                     </article>
                     <article class="menu-card">
-                        <img src="menu-financier.jpg" alt="フィナンシェ">
+                        <div class="menu-visual financier" aria-hidden="true"></div>
                         <div class="menu-card-body">
                             <h3>フィナンシェ</h3>
                             <p>素材の香りを大切に、毎日の小さなご褒美にちょうどよい味わいに焼き上げます。</p>
                         </div>
                     </article>
                     <article class="menu-card">
-                        <img src="menu-basque-cheesecake.jpg" alt="バスクチーズケーキ">
+                        <div class="menu-visual cheese" aria-hidden="true"></div>
                         <div class="menu-card-body">
                             <h3>バスクチーズケーキ</h3>
                             <p>濃厚なのに重すぎない、手土産にも記念日にも選びやすい一品です。</p>
@@ -718,7 +844,7 @@
         <section id="story">
             <div class="section-inner story-layout">
                 <figure class="story-image">
-                    <img src="story-making-sweets.jpg" alt="焼き菓子を作る様子">
+                    <img src="suu-hero.png" alt="木のカウンターに並ぶ焼き菓子">
                 </figure>
                 <div>
                     <span class="section-kicker">Story</span>
@@ -746,10 +872,10 @@
                 <h2 class="section-title">営業日と焼き上がりはInstagramで。</h2>
                 <p class="lead">日々の焼き菓子、営業スケジュール、限定販売のお知らせはInstagramで更新しています。</p>
                 <div class="instagram-grid" aria-label="Instagram投稿イメージ">
-                    <img src="instagram-01.jpg" alt="Instagram投稿イメージ1">
-                    <img src="instagram-02.jpg" alt="Instagram投稿イメージ2">
-                    <img src="instagram-03.jpg" alt="Instagram投稿イメージ3">
-                    <img src="instagram-04.jpg" alt="Instagram投稿イメージ4">
+                    <div class="post-tile"></div>
+                    <div class="post-tile"></div>
+                    <div class="post-tile"></div>
+                    <div class="post-tile"></div>
                 </div>
                 <div class="instagram-copy">
                     <p class="lead">最新情報は @suu_yakigashi をご確認ください。</p>
