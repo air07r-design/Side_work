@@ -388,8 +388,8 @@
 
         /* ========================================
            Reservation
-           予約SaaSのURLだけ差し替えれば運用できる構造です。
-           将来オンライン決済に対応する場合は、文言とボタンURLを決済対応メニューに変更してください。
+           予約URLだけ差し替えれば運用できる構造です。
+           将来の導線変更時も、ボタンURLだけを差し替えてください。
         ======================================== */
         .reservation {
             background: #f2ede3;
@@ -712,9 +712,9 @@
 <body>
     <!--
         Reservation Link Setting
-        RESERVAの公開予約URLが決まったら、下のdata-reserve-urlだけを差し替えてください。
+        公開予約URLが決まったら、下のdata-reserve-urlだけを差し替えてください。
         LP内の予約ボタンはJavaScriptでこのURLに統一されます。
-        将来、RESERVA以外の予約システムへ移行する場合も、この1箇所を変更します。
+        将来、別の予約システムへ移行する場合も、この1箇所を変更します。
     -->
     <div id="reservation-config" data-reserve-url="https://example.com/reserve" hidden></div>
 
@@ -753,11 +753,11 @@
                 <div class="intro-list">
                     <div class="intro-item">
                         <b>店頭受け取り予約</b>
-                        <span>ホールケーキや限定ギフトは、RESERVAから事前予約できます。</span>
+                        <span>ホールケーキや限定ギフトは、WEBから事前予約できます。</span>
                     </div>
                     <div class="intro-item">
-                        <b>オンライン決済なし</b>
-                        <span>現在のお支払いは店頭で。まずは予約管理をわかりやすく整えます。</span>
+                        <b>受け取りもスムーズに</b>
+                        <span>受け取り日時と内容を選べるので、来店前のやり取りが少なくなります。</span>
                     </div>
                     <div class="intro-item">
                         <b>最新情報はInstagram</b>
@@ -825,16 +825,16 @@
                 <div>
                     <span class="section-kicker">Reservation</span>
                     <h2 class="section-title">店頭受け取りのご予約はこちら。</h2>
-                    <p class="lead">現在はオンライン決済なしで、記念日ホールケーキや限定ギフトの事前予約を受け付けています。受け取り日時と内容を選んで送信いただくと、当日の受け取りがスムーズです。</p>
+                    <p class="lead">記念日ホールケーキや限定ギフトの事前予約を受け付けています。受け取り日時と内容を選んで送信いただくと、当日の受け取りがスムーズです。</p>
                     <ul class="reservation-list">
                         <li>お支払いは店頭でお願いいたします。</li>
                         <li>数量限定の商品は、予約枠が埋まり次第受付終了となります。</li>
-                        <li>予約内容の確認は、予約サービスから届く案内をご確認ください。</li>
+                        <li>予約内容の確認は、予約完了後に届く案内をご確認ください。</li>
                     </ul>
                 </div>
                 <aside class="reservation-box" aria-label="WEB予約案内">
                     <strong>WEB予約受付</strong>
-                    <p>InstagramのDMではなく、RESERVAの予約ページから必要事項を入力できます。</p>
+                    <p>InstagramのDMではなく、予約ページから必要事項を入力できます。</p>
                     <a class="button js-reserve-link" href="#reserve" target="_blank" rel="noopener">WEB予約へ進む</a>
                 </aside>
             </div>
