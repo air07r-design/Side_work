@@ -141,12 +141,32 @@
         }
 
         .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             font-size: 1rem;
             font-weight: 600;
             text-decoration: none;
         }
 
-        .brand span {
+        .brand-logo {
+            width: 38px;
+            height: 38px;
+            border: 1px solid rgba(255, 250, 241, 0.28);
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
+        }
+
+        .brand-text {
+            display: grid;
+            color: #fffaf1;
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.25;
+        }
+
+        .brand-text span {
             color: rgba(255, 250, 241, 0.7);
             font-size: 0.78rem;
             font-weight: 400;
@@ -573,8 +593,23 @@
             color: rgba(255, 255, 255, 0.86);
         }
 
+        .access-brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+
+        .access-logo {
+            width: 58px;
+            height: 58px;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
         .shop-info h3 {
-            margin-bottom: 20px;
+            margin-bottom: 0;
             color: #fff;
             font-size: 1.28rem;
             font-weight: 500;
@@ -631,6 +666,15 @@
 
             .nav-links a:not(.nav-reserve) {
                 display: none;
+            }
+
+            .brand {
+                gap: 8px;
+            }
+
+            .brand-logo {
+                width: 34px;
+                height: 34px;
             }
 
             .hero {
@@ -721,7 +765,10 @@
     <!-- Header -->
     <header class="site-header">
         <nav class="nav" aria-label="メインナビゲーション">
-            <a class="brand" href="#top">焼き菓子 suu <span>甲府市上石田</span></a>
+            <a class="brand" href="#top">
+                <img class="brand-logo" src="suu-logo.jpg" alt="焼き菓子 suu ロゴ">
+                <span class="brand-text">焼き菓子 suu <span>甲府市上石田</span></span>
+            </a>
             <div class="nav-links">
                 <a href="#concept">Concept</a>
                 <a href="#menu">Menu</a>
@@ -891,7 +938,10 @@
                 <h2 class="section-title">焼き菓子 suu</h2>
                 <div class="access-grid">
                     <div class="shop-info">
-                        <h3>甲府市上石田の小さな焼き菓子店</h3>
+                        <div class="access-brand">
+                            <img class="access-logo" src="suu-logo.jpg" alt="焼き菓子 suu ロゴ">
+                            <h3>甲府市上石田の小さな焼き菓子店</h3>
+                        </div>
                         <p>〒400-0041 山梨県甲府市上石田3-8-8</p>
                         <p>（旧タルトアニーズ様テナント跡地）</p>
                         <p>営業時間：Instagramの営業スケジュールをご確認ください</p>
